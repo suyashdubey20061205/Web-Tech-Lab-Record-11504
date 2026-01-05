@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Box</title>
+  <style>
+    #box {
+      width: 150px;
+      height: 150px;
+      background-color: green;
+      margin: 50px auto;
+      text-align: center;
+      line-height: 150px;
+      color: white;
+      cursor: pointer;
+    }
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="box">Click Me</div>
+<button id="toggleClick">Disable Click</button>
+
+<script>
+  const box = document.getElementById("box");
+  let clickEnabled = true;
+  let colorState = 0;
+
+  // Change color in sequence on click
+  function changeColor() {
+    if(colorState === 0){
+      box.style.backgroundColor = "red";
+      colorState = 1;
+    } else if(colorState === 1){
+      box.style.backgroundColor = "blue";
+      colorState = 2;
+    } else {
+      box.style.backgroundColor = "orange";
+      colorState = 0;
+    }
+  }
+
+  // Mouse click
+  box.addEventListener("click", changeColor);
+
+  // Toggle click listener
+  document.getElementById("toggleClick").addEventListener("click", function(){
+    if(clickEnabled){
+      box.removeEventListener("click", changeColor);
+      this.textContent = "Enable Click";
+      clickEnabled = false;
+    } else {
+      box.addEventListener("click", changeColor);
+      this.textContent = "Disable Click";
+      clickEnabled = true;
+    }
+  });
+
+  // Keyboard events
+  document.addEventListener("keydown", function(e){
+    if(e.key === "r") box.style.backgroundColor = "green";
+    if(e.key === "b") box.style.backgroundColor = "blue";
+    if(e.key === "o") box.style.backgroundColor = "orange";
+  });
+</script>
+
+</body>
+</html>

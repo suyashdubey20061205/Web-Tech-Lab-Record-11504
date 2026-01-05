@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced CSS Styling</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      padding: 40px;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .header {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      border: 3px solid #0b5ed7;
+    }
+
+    .card {
+      background-color: white;
+      padding: 25px;
+      margin-bottom: 25px;
+      border: 2px solid #ddd;
+      border-left: 8px solid #4facfe;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .highlight {
+      background-image: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    .highlight p,
+    .highlight h2 {
+      background-color: rgba(0,0,0,0.5);
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <header class="header">
+      <h1>Advanced CSS Styling</h1>
+      <p>Box Model • Backgrounds • Borders • Spacing</p>
+    </header>
+
+    <section class="card">
+      <h2>CSS Box Model</h2>
+      <p>
+        The box model consists of content, padding, border, and margin.
+        This card visually demonstrates all of them.
+      </p>
+    </section>
+
+    <section class="card highlight">
+      <h2>Background Images</h2>
+      <p>
+        Background images can be positioned, sized, and layered with colors.
+      </p>
+    </section>
+  </div>
+
+</body>
+</html>

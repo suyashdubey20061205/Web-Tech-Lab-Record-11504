@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Element Manipulation</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        h2 {
+            color: #0d6efd;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Buttons - group selector */
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0b5ed7;
+            transform: scale(1.05);
+        }
+
+        /* List container */
+        #list {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* List items - element selector */
+        #list li {
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        /* Hover effect on list items */
+        #list li:hover {
+            background-color: #e2e6ea;
+            transform: translateX(5px);
+        }
+
+        /* Center buttons container using flexbox */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            #list {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Element Manipulation Demo</h2>
+
+<!-- Buttons container -->
+<div class="button-container">
+    <button onclick="addItem()">Add Item</button>
+    <button onclick="removeItem()">Remove Last Item</button>
+    <button onclick="modifyFirst()">Modify First Item</button>
+</div>
+
+<!-- List -->
+<ul id="list">
+    <li>Item 1</li>
+</ul>
+
+<script>
+    // ----- APPEND CHILD (Add new li element) -----
+    function addItem() {
+        let list = document.getElementById("list");
+        let li = document.createElement("li");
+        li.textContent = "Item " + (list.children.length + 1); // Dynamic numbering
+        list.appendChild(li);
+    }
+
+    // ----- REMOVE CHILD (Remove last element) -----
+    function removeItem() {
+        let list = document.getElementById("list");
+        if (list.lastElementChild) {
+            list.removeChild(list.lastElementChild);
+        } else {
+            alert("No items left to remove!");
+        }
+    }
+
+    // ----- MODIFY CHILD NODE (Change content of first item) -----
+    function modifyFirst() {
+        let list = document.getElementById("list");
+        if (list.firstElementChild) {
+            list.firstElementChild.textContent = "First Item (Modified)";
+        } else {
+            alert("No items to modify!");
+        }
+    }
+</script>
+
+</body>
+</html>

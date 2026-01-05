@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Function & Scope Demo</title>
+</head>
+<body>
+
+<h2>JavaScript User-Defined Functions & Scope</h2>
+
+<script>
+    // ----- User-defined function -----
+    function showScope() {
+
+        var a = 10;     // function scope
+        let b = 20;     // block scope
+        const c = 30;   // block scope
+
+        if (true) {
+            var a = 100;    // same variable (function scope)
+            let b = 200;    // new block variable
+            const c = 300; // new block constant
+
+            document.write("Inside block:<br>");
+            document.write("var a =", a, "<br>");   // 100
+            document.write("let b =", b, "<br>");   // 200
+            document.write("const c =", c, "<br><br>"); // 300
+        }
+
+        document.write("Outside block:<br>");
+        document.write("var a =", a, "<br>");   // 100
+        document.write("let b =", b, "<br>");   // 20
+        document.write("const c =", c, "<br>"); // 30
+    }
+
+    // ----- Function invocation -----
+    showScope();
+</script>
+
+</body>
+</html>
