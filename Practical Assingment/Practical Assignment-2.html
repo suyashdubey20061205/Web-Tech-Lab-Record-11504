@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMart Grocery Store</title>
+
+    <style>
+        /* Universal Selector */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s, background 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* Hover effect on nav links */
+        nav ul li a:hover {
+            background-color: white;
+            color: #2e8b57;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(to right, #98fb98, #2e8b57);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .banner button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            background-color: white;
+            color: #2e8b57;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        /* Hover effect on banner button */
+        .banner button:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .products h2 {
+            margin-bottom: 30px;
+        }
+
+        /* Grid Layout */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Product Card */
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* Hover effect on product card */
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 4px 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Product Image */
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        /* Hover effect on image */
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+        }
+
+        .product-card button {
+            padding: 8px 15px;
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        /* Hover effect on product button */
+        .product-card button:hover {
+            background-color: #256d46;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2e8b57;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>FreshMart</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Offers</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <h2>Fresh & Organic Groceries</h2>
+        <p>Best quality at affordable prices</p>
+        <button>Shop Now</button>
+    </section>
+
+    <section class="products">
+        <h2>Our Products</h2>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="apple.webp" alt="Apples">
+                <h3>Apples</h3>
+                <p>₹120 / kg</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="milk.webp" alt="Milk">
+                <h3>Milk</h3>
+                <p>₹50 / litre</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="rice.jpg" alt="Rice">
+                <h3>Rice</h3>
+                <p>₹60 / kg</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="vegetables.jpg" alt="Vegetables">
+                <h3>Vegetables</h3>
+                <p>₹80 / pack</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 FreshMart Grocery Store</p>
+    </footer>
+    <script>
+        const products = [
+    { id: 1, name: "Rice", price: 50 },
+    { id: 2, name: "Milk", price: 30 },
+    { id: 3, name: "Vegetables", price: 40 }
+];
+
+// DOM reference
+const productList = document.getElementById("productList");
+
+// Function to display products
+const displayProducts = () => {
+    productList.innerHTML = "";
+
+    products.forEach(product => {
+        const div = document.createElement("div");
+        div.style.border = "1px solid #ccc";
+        div.style.padding = "10px";
+        div.style.margin = "10px 0";
+
+        div.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>Price: ₹${product.price}</p>
+            <button onclick="addToCart('${product.name}')">Add to Cart</button>
+        `;
+
+        productList.appendChild(div);
+    });
+};
+
+// Event handling function
+const addToCart = (productName) => {
+    alert(productName + " added to cart");
+};
+
+// API usage example
+fetch("https://fakestoreapi.com/products?limit=2")
+    .then(response => response.json())
+    .then(data => {
+        console.log("API Data:", data);
+    });
+
+// Initial call
+displayProducts();
+    </script>
+
+</body>
+</html>

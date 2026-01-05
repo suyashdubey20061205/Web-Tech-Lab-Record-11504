@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMart Grocery Store</title>
+
+    <style>
+        /* Universal Selector */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header + Navigation */
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        /* Hover effect on navigation */
+        nav ul li a:hover {
+            background-color: white;
+            color: #2e8b57;
+        }
+
+        .cart {
+            font-weight: bold;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(to right, #98fb98, #2e8b57);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .banner button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            background-color: white;
+            color: #2e8b57;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .banner button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 4px 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-card button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .product-card button:hover {
+            background-color: #256d46;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2e8b57;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>FreshMart</h1>
+
+    <!-- Navigation bar retained -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="cart">🛒 Cart: <span id="cartCount">0</span></div>
+</header>
+
+<section class="banner">
+    <h2>Fresh & Organic Groceries</h2>
+    <p>Best quality at affordable prices</p>
+    <button onclick="welcomeUser()">Shop Now</button>
+</section>
+
+<section class="products">
+    <h2>Our Products</h2>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="apple.webp">
+            <h3>Apples</h3>
+            <p>₹120 / kg</p>
+            <button onclick="addToCart('Apples')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="milk.webp">
+            <h3>Milk</h3>
+            <p>₹50 / litre</p>
+            <button onclick="addToCart('Milk')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="rice.jpg">
+            <h3>Rice</h3>
+            <p>₹60 / kg</p>
+            <button onclick="addToCart('Rice')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="vegetables.jpg">
+            <h3>Vegetables</h3>
+            <p>₹80 / pack</p>
+            <button onclick="addToCart('Vegetables')">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 FreshMart Grocery Store</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    let cartCount = 0;
+
+    function addToCart(product) {
+        cartCount++;
+        document.getElementById("cartCount").innerText = cartCount;
+
+        if (cartCount <= 5) {
+            alert(product + " added to cart!");
+        } else {
+            alert("Cart is almost full!");
+        }
+    }
+
+    function welcomeUser() {
+        alert("Welcome to FreshMart! Happy Shopping 😊");
+    }
+</script>
+
+</body>
+</html>
